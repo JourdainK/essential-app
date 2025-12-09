@@ -1,3 +1,23 @@
-<div class="row m-4">
-    <input type="text" class="form-control" placeholder="Find players by name" #filter (keyup)="update(filter.value)">
+<div class="container-md">
+    <div class="row-4 m-4">
+        <input type="text" class="form-control" placeholder="Find players by name" #filter
+            (keyup)="update(filter.value)">
+        <button class="btn btn-primary" type="button" (click)="update(''); filter.value = ''">Clear</button>
+    </div>
+
+    <div class="row-4">
+        <ul *ngIf="players$ | async as players; else loading" class="list-group m-4">
+            <!--
+        <li *ngFor="let player of players" [appOnlineStatus]="player.online">
+            -->
+            <li class="list-group-item" *ngFor="let player of players">
+                <a [routerLink]="['/profile', player.id]">{{ player.name }}</a>
+            </li>
+        </ul>
+
+        <ng-template #loading>
+            <p class="m-4">Loading...</p>
+        </ng-template>
+    </div>
+
 </div>
