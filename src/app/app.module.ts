@@ -3,15 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { PlayersComponent } from './pages/players/players.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PlayersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    HttpClientModule
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })
